@@ -14,6 +14,7 @@ class PasswordTextFieldView: UIView {
     let textField = UITextField()
     let placeHolderText: String
     let dividerView = UIView()
+    let errorLabel = UILabel()
     
     init(placeHolderText: String) {
         self.placeHolderText = placeHolderText
@@ -29,7 +30,7 @@ class PasswordTextFieldView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 200, height: 200)
+        return CGSize(width: 200, height: 100)
     }
     
 }
@@ -38,7 +39,6 @@ extension PasswordTextFieldView {
     
     func style() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .systemOrange
         
         lockImageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -55,6 +55,14 @@ extension PasswordTextFieldView {
         
         dividerView.translatesAutoresizingMaskIntoConstraints = false
         dividerView.backgroundColor = .separator
+        
+        errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorLabel.textColor = .systemRed
+        errorLabel.font = .preferredFont(forTextStyle: .footnote)
+        errorLabel.text = "Your password must meet the requirements below."
+        errorLabel.numberOfLines = 0
+        errorLabel.lineBreakMode = .byWordWrapping
+        errorLabel.isHidden = false
     }
     
     func layout() {
@@ -62,6 +70,7 @@ extension PasswordTextFieldView {
         addSubview(textField)
         addSubview(eyeButton)
         addSubview(dividerView)
+        addSubview(errorLabel)
         
         NSLayoutConstraint.activate([
             lockImageView.topAnchor.constraint(equalTo: topAnchor),
@@ -89,6 +98,12 @@ extension PasswordTextFieldView {
             dividerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             dividerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             dividerView.heightAnchor.constraint(equalToConstant: 1)
+        ])
+        
+        NSLayoutConstraint.activate([
+            errorLabel.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 4),
+            errorLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            errorLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
 }
