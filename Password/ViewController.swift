@@ -10,9 +10,12 @@ import UIKit
 class ViewController: UIViewController {
     
     let newPasswordTextField = PasswordTextFieldView(placeHolderText: "New password")
-    let criteriaView = PasswordCriteriaView(text: "uppercase letter (A-Z)")
+    let statusView = PasswordStatusView()
+    let confirmPasswordTextField = PasswordTextFieldView(placeHolderText: "Re-enter new password")
     
     let stackView = UIStackView()
+    
+    let resetButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,22 +24,33 @@ class ViewController: UIViewController {
         layout()
     }
 
-
 }
 
 extension ViewController {
     
     func style() {
         newPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
-        criteriaView.translatesAutoresizingMaskIntoConstraints = false
+        statusView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 20
+        stackView.layer.cornerRadius = 5
+        stackView.clipsToBounds = true
+        
+        confirmPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        resetButton.translatesAutoresizingMaskIntoConstraints = false
+        resetButton.configuration = .filled()
+        resetButton.setTitle("Reset Password", for: [])
     }
     
     func layout() {
-        stackView.addArrangedSubview(criteriaView)
+        stackView.addArrangedSubview(newPasswordTextField)
+        stackView.addArrangedSubview(statusView)
+        stackView.addArrangedSubview(confirmPasswordTextField)
+        stackView.addArrangedSubview(resetButton)
+        
         view.addSubview(stackView)
         
         // newPasswordTextField

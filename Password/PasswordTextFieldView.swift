@@ -30,7 +30,7 @@ class PasswordTextFieldView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 200, height: 100)
+        return CGSize(width: 200, height: 60)
     }
     
 }
