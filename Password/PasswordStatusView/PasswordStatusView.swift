@@ -102,12 +102,14 @@ extension PasswordStatusView {
         let uppercaseMet = PasswordCriteria.uppercaseMet(text)
         let lowercaseMet = PasswordCriteria.lowercaseMet(text)
         let digitMet = PasswordCriteria.digitMet(text)
+        let specialCharacterMet = PasswordCriteria.specialCharacterMet(text)
         
         if shouldResetCriteria {
             lengthAndNoSpaceMet ? lenghtCriteriaView.isCritieriaMet = true : lenghtCriteriaView.reset()
             uppercaseMet ? uppercaseCriteriaView.isCritieriaMet = true : uppercaseCriteriaView.reset()
             lowercaseMet ? lowerCaseCriteriaView.isCritieriaMet = true : lowerCaseCriteriaView.reset()
             digitMet ? digitCriteriaView.isCritieriaMet = true : digitCriteriaView.reset()
+            specialCharacterMet ? specialCharacterCriteriaView.isCritieriaMet = true : specialCharacterCriteriaView.reset()
         }
     }
 }
