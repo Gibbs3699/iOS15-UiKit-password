@@ -26,7 +26,6 @@ class PasswordTextFieldView: UIView {
         self.placeHolderText = placeHolderText
         
         super.init(frame: .zero)
-        
         style()
         layout()
     }
@@ -123,8 +122,20 @@ extension PasswordTextFieldView {
     }
 }
 
-extension PasswordTextFieldView: UITextFieldDelegate {
+extension PasswordTextFieldView {
     @objc func textFieldEditingChange(_ sender: UITextField) {
         delegate?.editingChange(self)
+    }
+}
+
+extension PasswordTextFieldView: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("check textFieldDidEndEditing: \(textField.text)")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("check textFieldShouldReturn: \(textField.text)")
+        textField.endEditing(true)
+        return true
     }
 }

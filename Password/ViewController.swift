@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setup()
         style()
         layout()
     }
@@ -27,6 +27,19 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
+    
+    func setup() {
+        setupDismissKeyboardGesture()
+    }
+    
+    private func setupDismissKeyboardGesture() {
+        let dismissKeyboardTap = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
+        view.addGestureRecognizer(dismissKeyboardTap)
+    }
+    
+    @objc func viewTapped(_ recognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     
     func style() {
         newPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
