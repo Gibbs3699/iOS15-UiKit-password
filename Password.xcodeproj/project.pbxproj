@@ -15,6 +15,7 @@
 		DC5ED7582852595300B54D48 /* PasswordTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5ED7572852595300B54D48 /* PasswordTextFieldView.swift */; };
 		DC5ED75A28533E9500B54D48 /* PasswordCriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5ED75928533E9500B54D48 /* PasswordCriteriaView.swift */; };
 		DC5ED75E285352DE00B54D48 /* PasswordStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5ED75D285352DE00B54D48 /* PasswordStatusView.swift */; };
+		DC5ED76028547CD400B54D48 /* PasswordCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5ED75F28547CD400B54D48 /* PasswordCriteria.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		DC5ED7572852595300B54D48 /* PasswordTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextFieldView.swift; sourceTree = "<group>"; };
 		DC5ED75928533E9500B54D48 /* PasswordCriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCriteriaView.swift; sourceTree = "<group>"; };
 		DC5ED75D285352DE00B54D48 /* PasswordStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStatusView.swift; sourceTree = "<group>"; };
+		DC5ED75F28547CD400B54D48 /* PasswordCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCriteria.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				DC5ED75928533E9500B54D48 /* PasswordCriteriaView.swift */,
 				DC5ED75D285352DE00B54D48 /* PasswordStatusView.swift */,
+				DC5ED75F28547CD400B54D48 /* PasswordCriteria.swift */,
 			);
 			path = PasswordStatusView;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				DC5ED7412852562200B54D48 /* AppDelegate.swift in Sources */,
 				DC5ED75E285352DE00B54D48 /* PasswordStatusView.swift in Sources */,
 				DC5ED75A28533E9500B54D48 /* PasswordCriteriaView.swift in Sources */,
+				DC5ED76028547CD400B54D48 /* PasswordCriteria.swift in Sources */,
 				DC5ED7432852562200B54D48 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

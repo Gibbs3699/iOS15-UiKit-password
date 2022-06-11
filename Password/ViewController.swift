@@ -30,6 +30,8 @@ extension ViewController {
     
     func style() {
         newPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
+        newPasswordTextField.delegate = self
+
         statusView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,4 +62,15 @@ extension ViewController {
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
+}
+
+extension ViewController: PasswordTextFieldDelegate {
+    func editingChange(_ sender: PasswordTextFieldView) {
+        if sender === newPasswordTextField {
+            print("check : \(sender.textField.text)")
+            statusView.updateDisplay(sender.textField.text ?? "")
+        }
+    }
+    
+    
 }
