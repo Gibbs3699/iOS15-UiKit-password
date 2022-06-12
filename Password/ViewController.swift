@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    typealias CustomValidation = PasswordTextFieldView.CustomValidation
+    
     let newPasswordTextField = PasswordTextFieldView(placeHolderText: "New password")
     let statusView = PasswordStatusView()
     let confirmPasswordTextField = PasswordTextFieldView(placeHolderText: "Re-enter new password")
@@ -30,6 +32,21 @@ extension ViewController {
     
     func setup() {
         setupDismissKeyboardGesture()
+        setupNewPassword()
+    }
+    
+    private func setupNewPassword() {
+        let newPasswordValidation: CustomValidation = { text in
+            
+            guard let text = text, !text.isEmpty else {
+                self.statusView.reset()
+                return (false, "Enter your password")
+            }
+            
+            return (true, "")
+        }
+        
+        newPasswordTextField.customValidation = newPasswordValidation
     }
     
     private func setupDismissKeyboardGesture() {
@@ -86,7 +103,9 @@ extension ViewController: PasswordTextFieldDelegate {
     }
     
     func editDidEnd(_ sender: PasswordTextFieldView) {
-        print("editDidEnd: \(sender.textField.text)")
+        if sender === newPasswordTextField {
+            _ = newPasswordTextField.validate()
+        }
     }
     
 }
