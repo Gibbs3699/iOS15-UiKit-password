@@ -85,5 +85,8 @@ extension ViewController: PasswordTextFieldDelegate {
         }
     }
     
+    func editDidEnd(_ sender: PasswordTextFieldView) {
+        print("editDidEnd: \(sender.textField.text)")
+    }
     
 }
